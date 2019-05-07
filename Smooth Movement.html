@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title>Smooth Movement Snake</title>
+    <link rel="stylesheet" href="scripts/style.css">
+    <style id="style"></style>
+  </head>
+  <body>
+
+  	<div id="mainDiv" tabindex="0">
+      <!--<div id="infoDiv">
+        <button id="restart"></button>
+        <button id="pause"></button>
+        <p id="scoreP">Score: <span id="score"></span></p>
+      </div>-->
+    </div>
+
+    <div id="errorDiv">
+      <h2>Error!</h2>
+      <p id="errorP">
+        The Program failed due to bad data.<br>
+        The exact cause of the failure is given below:
+      </p>
+      <p id="errorMsg"></p>
+    </div>
+
+<!--############################## AUDIOS ##################################-->
+  <audio id="beepAudio" src="sounds/beep.wav"></audio>
+
+<!--############################# SCRIPTS ##################################-->
+  <script src="scripts/game.js"></script>
+  <script src="scripts/snake.js"></script>
+  <script src="scripts/head.js"></script>
+  <script src="scripts/food.js"></script>
+  <script src="scripts/table.js"></script>
+  <script src="scripts/board.js"></script>
+  <script>
+    var game = new Game({
+      containerId: "mainDiv",
+      useAnimationFrame: 1,
+      snakesEatEachOther: 0,
+      checkCutsByBoardSquare: 1,
+      board: {
+        noBorders: 1,
+        cols: "max",//width of the board
+        rows: "max",//height of the board
+        showSquares: 0,
+        bgColor: "#333",
+        eachNthStep: 1,// an integer other than 0
+        borderWidth: 0,
+        borderStyle: "groove",
+        borderColor: "blue"
+      },
+      snakes: [
+        {
+          head: {
+            col: 1, row: 1, size: 54,
+            shape: "circle", color: "yellow",
+            imageURL: "images/snakeHead.png", deadImageURL: "images/deadHead.png"
+          },
+          name: "Snake1",
+          growth: 1,
+          speed: 60,//steps per second. (note that this is also the fps of a snake)
+          cellSize: 50,//even number
+          color: "pink",
+          step: 6,//must be an int by which headSize is dividable (or any int bigger than headSize)
+          beginningLength: 50,
+          cellShape: "circle",// square, roundedSquare, circle
+          moveButtons: {"w": "up", "d": "right", "s": "down", "a": "left"},
+          canEatItSelf: 1,
+          reviveAfterDeath: 0,
+        },
+        {
+          head: {
+            col: -2, row: -2, size: 54,
+            shape: "circle", color: "yellow",
+            imageURL: "images/snakeHead.png", deadImageURL: "images/deadHead.png"
+          },
+          name: "Snake2",
+          growth: 1,
+          speed: 60,//steps per second. (note that this is also the fps of a snake)
+          cellSize: 50,//even number
+          color: "purple",
+          step: 6,//must be an int by which headSize is dividable (or any int bigger than headSize)
+          beginningLength: 50,
+          cellShape: "circle",// square, roundedSquare, circle
+          moveButtons: {"ArrowUp": "up", "ArrowRight": "right", "ArrowDown": "down", "ArrowLeft": "left"},
+          canEatItSelf: 1,
+          reviveAfterDeath: 0,
+        }
+      ],
+      food: [
+        {name: "apple", size: 40, imageURL: "images/apple.png", soundId: "beepAudio", growth: 2},
+        {name: "banana", size: 50, imageURL: "images/banana.png", soundId: "beepAudio", growth: 1},
+        {name: "melon", shape: "roundedSquare", size: 50, color: "green", soundId: "beepAudio", growth: 4}
+      ]
+    });
+    game.main();
+  </script>
+
+</body>
+</html>
