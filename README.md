@@ -1,3 +1,3 @@
 # Snake
 
-A more fancy version of the classical Snake game
+A fancier version of the classical Snake game
