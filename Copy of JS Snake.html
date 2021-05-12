@@ -47,10 +47,10 @@
       snakesEatEachOther: 0,
       checkCutsByBoardSquare: 0,
       board: {
-        noBorders: 1,
+        noBorders: 0,
         cols: "max",//width of the board
         rows: "max",//height of the board
-        showSquares: 0,
+        showSquares: 1,
         bgColor: "#0000a8",
         eachNthStep: 1,// an integer other than 0
         borderWidth: 15,
@@ -68,7 +68,7 @@
           speed: 12,//steps per second. (note that this is also the fps of a snake)
           cellSize: 18,//even number
           color: "#fcfc54",
-          step: 18,//must be an int by which headSize is dividable (or any int bigger than headSize)
+          step: 20,//must be an int by which headSize is dividable (or any int bigger than headSize)
           beginningLength: 0,
           cellShape: "square",// square, roundedSquare, circle
           moveButtons: {
@@ -76,7 +76,7 @@
 						"ArrowUp": "up", "ArrowRight": "right", "ArrowDown": "down", "ArrowLeft": "left"
 					},
           canEatItSelf: 1,
-          reviveAfterDeath: 0,
+          reviveAfterDeath: 1,
         },
 
       ],

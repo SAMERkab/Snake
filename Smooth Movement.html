@@ -39,13 +39,13 @@
     var game = new Game({
       containerId: "mainDiv",
       useAnimationFrame: 1,
-      snakesEatEachOther: 0,
+      snakesEatEachOther: 1,
       checkCutsByBoardSquare: 1,
       board: {
-        noBorders: 1,
+        noBorders: 0,
         cols: "max",//width of the board
         rows: "max",//height of the board
-        showSquares: 0,
+        showSquares: 1,
         bgColor: "#333",
         eachNthStep: 1,// an integer other than 0
         borderWidth: 0,
@@ -56,12 +56,12 @@
         {
           head: {
             col: 1, row: 1, size: 54,
-            shape: "circle", color: "yellow",
+            shape: "square", color: "blue",
             imageURL: "images/snakeHead.png", deadImageURL: "images/deadHead.png"
           },
           name: "Snake1",
           growth: 1,
-          speed: 60,//steps per second. (note that this is also the fps of a snake)
+          speed: 100,//steps per second. (note that this is also the fps of a snake)
           cellSize: 50,//even number
           color: "pink",
           step: 6,//must be an int by which headSize is dividable (or any int bigger than headSize)
@@ -69,7 +69,7 @@
           cellShape: "circle",// square, roundedSquare, circle
           moveButtons: {"w": "up", "d": "right", "s": "down", "a": "left"},
           canEatItSelf: 1,
-          reviveAfterDeath: 0,
+          reviveAfterDeath: 1,
         },
         {
           head: {
